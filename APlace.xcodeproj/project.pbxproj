@@ -7,14 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D43C8F126142C3600D2AF71 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D43C8F026142C3600D2AF71 /* Launch Screen.storyboard */; };
+		4D6E11BA2623B53B0023AC87 /* SwatchPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E11B92623B53B0023AC87 /* SwatchPicker.swift */; };
+		4D872D1A261BCD4A0005FB5B /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D872D19261BCD4A0005FB5B /* VirtualObject.swift */; };
+		4D872D21261D01190005FB5B /* plastic_side_chair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = 4D872D1D261CEE6D0005FB5B /* plastic_side_chair.usdz */; };
+		4D8A2E24261FB85600CC4436 /* CompositionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A2E23261FB85600CC4436 /* CompositionsView.swift */; };
+		4DA83A9126237AC4004773F1 /* Colour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA83A9026237AC4004773F1 /* Colour.swift */; };
+		4DB05C2B2628A0DA0062ED94 /* LightComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB05C2A2628A0DA0062ED94 /* LightComponent.swift */; };
+		4DB05C2E2628BC310062ED94 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB05C2D2628BC310062ED94 /* Assets.swift */; };
 		4DE9DE5526121E4C0082AD9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9DE5426121E4C0082AD9B /* AppDelegate.swift */; };
 		4DE9DE5726121E4C0082AD9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9DE5626121E4C0082AD9B /* ContentView.swift */; };
 		4DE9DE5926121E4C0082AD9B /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9DE5826121E4C0082AD9B /* Experience.rcproject */; };
 		4DE9DE5B26121E510082AD9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE9DE5A26121E510082AD9B /* Assets.xcassets */; };
 		4DE9DE5E26121E510082AD9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4DE9DE5D26121E510082AD9B /* Preview Assets.xcassets */; };
+		4DF2D8832620C01200F1252B /* simd_float4x4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D8822620C01200F1252B /* simd_float4x4.swift */; };
+		4DF2D8882621377500F1252B /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D8872621377500F1252B /* ARViewContainer.swift */; };
+		4DF2D8972623681400F1252B /* Swatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D8962623681400F1252B /* Swatch.swift */; };
+		4DF4EAE0261B168E0041281B /* VirtualObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4EADF261B168E0041281B /* VirtualObjectEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D43C8F026142C3600D2AF71 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		4D6E11B92623B53B0023AC87 /* SwatchPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchPicker.swift; sourceTree = "<group>"; };
+		4D872D19261BCD4A0005FB5B /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
+		4D872D1D261CEE6D0005FB5B /* plastic_side_chair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = plastic_side_chair.usdz; sourceTree = "<group>"; };
+		4D8A2E23261FB85600CC4436 /* CompositionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionsView.swift; sourceTree = "<group>"; };
+		4DA83A9026237AC4004773F1 /* Colour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colour.swift; sourceTree = "<group>"; };
+		4DB05C2A2628A0DA0062ED94 /* LightComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightComponent.swift; sourceTree = "<group>"; };
+		4DB05C2D2628BC310062ED94 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		4DE9DE5126121E4C0082AD9B /* APlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE9DE5426121E4C0082AD9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DE9DE5626121E4C0082AD9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -22,6 +42,10 @@
 		4DE9DE5A26121E510082AD9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4DE9DE5D26121E510082AD9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4DE9DE5F26121E510082AD9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DF2D8822620C01200F1252B /* simd_float4x4.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simd_float4x4.swift; sourceTree = "<group>"; };
+		4DF2D8872621377500F1252B /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
+		4DF2D8962623681400F1252B /* Swatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swatch.swift; sourceTree = "<group>"; };
+		4DF4EADF261B168E0041281B /* VirtualObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +59,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D49CF372624774D00B2C9A3 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9DE5626121E4C0082AD9B /* ContentView.swift */,
+				4D8A2E23261FB85600CC4436 /* CompositionsView.swift */,
+				4DF2D89426231AEA00F1252B /* Controls */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		4D872D15261B7EAD0005FB5B /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				4D872D19261BCD4A0005FB5B /* VirtualObject.swift */,
+				4DE9DE5826121E4C0082AD9B /* Experience.rcproject */,
+				4D872D1C261CEE5D0005FB5B /* Assets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		4D872D1C261CEE5D0005FB5B /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4DE9DE5A26121E510082AD9B /* Assets.xcassets */,
+				4D872D1D261CEE6D0005FB5B /* plastic_side_chair.usdz */,
+				4DB05C2D2628BC310062ED94 /* Assets.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		4DB05C2926289DEF0062ED94 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				4DB05C2A2628A0DA0062ED94 /* LightComponent.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		4DE9DE4826121E4C0082AD9B = {
 			isa = PBXGroup;
 			children = (
@@ -54,12 +116,16 @@
 		4DE9DE5326121E4C0082AD9B /* APlace */ = {
 			isa = PBXGroup;
 			children = (
+				4D872D15261B7EAD0005FB5B /* Resource */,
+				4DB05C2926289DEF0062ED94 /* Components */,
+				4DF4EADE261B16740041281B /* Entities */,
+				4D49CF372624774D00B2C9A3 /* UI */,
+				4DF2D8872621377500F1252B /* ARViewContainer.swift */,
 				4DE9DE5426121E4C0082AD9B /* AppDelegate.swift */,
-				4DE9DE5626121E4C0082AD9B /* ContentView.swift */,
-				4DE9DE5826121E4C0082AD9B /* Experience.rcproject */,
-				4DE9DE5A26121E510082AD9B /* Assets.xcassets */,
+				4DF2D8812620BFE000F1252B /* Extensions */,
 				4DE9DE5F26121E510082AD9B /* Info.plist */,
 				4DE9DE5C26121E510082AD9B /* Preview Content */,
+				4D43C8F026142C3600D2AF71 /* Launch Screen.storyboard */,
 			);
 			path = APlace;
 			sourceTree = "<group>";
@@ -70,6 +136,32 @@
 				4DE9DE5D26121E510082AD9B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4DF2D8812620BFE000F1252B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4DF2D8822620C01200F1252B /* simd_float4x4.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		4DF2D89426231AEA00F1252B /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				4DF2D8962623681400F1252B /* Swatch.swift */,
+				4DA83A9026237AC4004773F1 /* Colour.swift */,
+				4D6E11B92623B53B0023AC87 /* SwatchPicker.swift */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		4DF4EADE261B16740041281B /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				4DF4EADF261B168E0041281B /* VirtualObjectEntity.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +221,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D43C8F126142C3600D2AF71 /* Launch Screen.storyboard in Resources */,
+				4D872D21261D01190005FB5B /* plastic_side_chair.usdz in Resources */,
 				4DE9DE5E26121E510082AD9B /* Preview Assets.xcassets in Resources */,
 				4DE9DE5B26121E510082AD9B /* Assets.xcassets in Resources */,
 			);
@@ -141,9 +235,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D872D1A261BCD4A0005FB5B /* VirtualObject.swift in Sources */,
+				4DF2D8882621377500F1252B /* ARViewContainer.swift in Sources */,
+				4D8A2E24261FB85600CC4436 /* CompositionsView.swift in Sources */,
+				4D6E11BA2623B53B0023AC87 /* SwatchPicker.swift in Sources */,
 				4DE9DE5726121E4C0082AD9B /* ContentView.swift in Sources */,
+				4DB05C2B2628A0DA0062ED94 /* LightComponent.swift in Sources */,
 				4DE9DE5526121E4C0082AD9B /* AppDelegate.swift in Sources */,
+				4DA83A9126237AC4004773F1 /* Colour.swift in Sources */,
+				4DB05C2E2628BC310062ED94 /* Assets.swift in Sources */,
 				4DE9DE5926121E4C0082AD9B /* Experience.rcproject in Sources */,
+				4DF2D8832620C01200F1252B /* simd_float4x4.swift in Sources */,
+				4DF4EAE0261B168E0041281B /* VirtualObjectEntity.swift in Sources */,
+				4DF2D8972623681400F1252B /* Swatch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +384,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.human.APlace;
+				PRODUCT_BUNDLE_IDENTIFIER = me.human.aplace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -301,7 +405,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = me.human.APlace;
+				PRODUCT_BUNDLE_IDENTIFIER = me.human.aplace;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
