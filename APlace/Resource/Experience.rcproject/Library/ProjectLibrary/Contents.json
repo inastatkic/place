@@ -3,5 +3,10 @@
     "libraryIdentifier" : "87ac2e7695edb81d362c91bef9d12138",
     "format" : "model",
     "displayName" : "plastic_side_chair.usdz"
+  },
+  {
+    "libraryIdentifier" : "7251d4613b3daf1ecbe1db64c6b25b3e",
+    "format" : "model",
+    "displayName" : "fiberglass_dsr.usdz"
   }
 ]

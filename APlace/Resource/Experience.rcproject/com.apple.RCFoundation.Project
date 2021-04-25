@@ -424,10 +424,148 @@
                                                               "withDescendants",
                                                               {
                                                                 "typeName" : "Bool",
-                                                                "value" : true
+                                                                "value" : false
                                                               }
                                                             ]
                                                           ],
+                                                          "children" : {
+                                                            "Mesh_014" : {
+                                                              "overrides" : {
+                                                                "arguments" : [
+                                                                  [
+                                                                    "includeSceneScaling",
+                                                                    {
+                                                                      "typeName" : "Bool",
+                                                                      "value" : false
+                                                                    }
+                                                                  ],
+                                                                  [
+                                                                    "subpath",
+                                                                    {
+                                                                      "typeName" : "String",
+                                                                      "value" : "plastic_side_chair\/VitraEPSC_DSR\/World\/Body\/Seat_shell\/Mesh_014"
+                                                                    }
+                                                                  ],
+                                                                  [
+                                                                    "url",
+                                                                    {
+                                                                      "typeName" : "String",
+                                                                      "value" : "model:87ac2e7695edb81d362c91bef9d12138\/plastic_side_chair.usdz"
+                                                                    }
+                                                                  ],
+                                                                  [
+                                                                    "withDescendants",
+                                                                    {
+                                                                      "typeName" : "Bool",
+                                                                      "value" : false
+                                                                    }
+                                                                  ]
+                                                                ],
+                                                                "children" : {
+                                                                  "Mesh_018" : {
+                                                                    "overrides" : {
+                                                                      "arguments" : [
+                                                                        [
+                                                                          "includeSceneScaling",
+                                                                          {
+                                                                            "typeName" : "Bool",
+                                                                            "value" : false
+                                                                          }
+                                                                        ],
+                                                                        [
+                                                                          "subpath",
+                                                                          {
+                                                                            "typeName" : "String",
+                                                                            "value" : "plastic_side_chair\/VitraEPSC_DSR\/World\/Body\/Seat_shell\/Mesh_014\/Mesh_018"
+                                                                          }
+                                                                        ],
+                                                                        [
+                                                                          "url",
+                                                                          {
+                                                                            "typeName" : "String",
+                                                                            "value" : "model:87ac2e7695edb81d362c91bef9d12138\/plastic_side_chair.usdz"
+                                                                          }
+                                                                        ],
+                                                                        [
+                                                                          "withDescendants",
+                                                                          {
+                                                                            "typeName" : "Bool",
+                                                                            "value" : true
+                                                                          }
+                                                                        ]
+                                                                      ],
+                                                                      "factory" : {
+                                                                        "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                                        "version" : "0.0"
+                                                                      },
+                                                                      "runtimeAttributes" : [
+                                                                        [
+                                                                          "RuntimeIdentifier",
+                                                                          {
+                                                                            "typeName" : "UUID",
+                                                                            "value" : "F11CDEF2-1BEC-41BA-9EAF-A1E695D543ED"
+                                                                          }
+                                                                        ]
+                                                                      ]
+                                                                    },
+                                                                    "transform" : {
+                                                                      "matrix" : [
+                                                                        1,
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        1,
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        1,
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        0,
+                                                                        1
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "factory" : {
+                                                                  "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                                  "version" : "0.0"
+                                                                },
+                                                                "runtimeAttributes" : [
+                                                                  [
+                                                                    "RuntimeIdentifier",
+                                                                    {
+                                                                      "typeName" : "UUID",
+                                                                      "value" : "A67A61F5-D050-4243-8E4A-042394FAAD43"
+                                                                    }
+                                                                  ]
+                                                                ]
+                                                              },
+                                                              "transform" : {
+                                                                "matrix" : [
+                                                                  1,
+                                                                  5.3403478486860461e-17,
+                                                                  0,
+                                                                  0,
+                                                                  -5.3403478486860461e-17,
+                                                                  1,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  1,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  1
+                                                                ]
+                                                              }
+                                                            }
+                                                          },
                                                           "factory" : {
                                                             "identifier" : "com.apple.af.FileImportAssetFactory",
                                                             "version" : "0.0"
@@ -881,6 +1019,1064 @@
                         1,
                         0,
                         0,
+                        0,
+                        0,
+                        1
+                      ]
+                    }
+                  },
+                  "80E68522-D6C0-4113-B436-5B72AD608674" : {
+                    "overrides" : {
+                      "children" : {
+                        "USDScene" : {
+                          "overrides" : {
+                            "arguments" : [
+                              [
+                                "includeSceneScaling",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : false
+                                }
+                              ],
+                              [
+                                "subpath",
+                                {
+                                  "typeName" : "String",
+                                  "value" : ""
+                                }
+                              ],
+                              [
+                                "url",
+                                {
+                                  "typeName" : "String",
+                                  "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                }
+                              ],
+                              [
+                                "withDescendants",
+                                {
+                                  "typeName" : "Bool",
+                                  "value" : false
+                                }
+                              ]
+                            ],
+                            "children" : {
+                              "fiberglass_dsr" : {
+                                "overrides" : {
+                                  "arguments" : [
+                                    [
+                                      "includeSceneScaling",
+                                      {
+                                        "typeName" : "Bool",
+                                        "value" : false
+                                      }
+                                    ],
+                                    [
+                                      "subpath",
+                                      {
+                                        "typeName" : "String",
+                                        "value" : "fiberglass_dsr"
+                                      }
+                                    ],
+                                    [
+                                      "url",
+                                      {
+                                        "typeName" : "String",
+                                        "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                      }
+                                    ],
+                                    [
+                                      "withDescendants",
+                                      {
+                                        "typeName" : "Bool",
+                                        "value" : false
+                                      }
+                                    ]
+                                  ],
+                                  "children" : {
+                                    "_materials" : {
+                                      "overrides" : {
+                                        "arguments" : [
+                                          [
+                                            "includeSceneScaling",
+                                            {
+                                              "typeName" : "Bool",
+                                              "value" : false
+                                            }
+                                          ],
+                                          [
+                                            "subpath",
+                                            {
+                                              "typeName" : "String",
+                                              "value" : "fiberglass_dsr\/_materials"
+                                            }
+                                          ],
+                                          [
+                                            "url",
+                                            {
+                                              "typeName" : "String",
+                                              "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                            }
+                                          ],
+                                          [
+                                            "withDescendants",
+                                            {
+                                              "typeName" : "Bool",
+                                              "value" : true
+                                            }
+                                          ]
+                                        ],
+                                        "factory" : {
+                                          "identifier" : "com.apple.af.FileImportAssetFactory",
+                                          "version" : "0.0"
+                                        },
+                                        "runtimeAttributes" : [
+                                          [
+                                            "RuntimeIdentifier",
+                                            {
+                                              "typeName" : "UUID",
+                                              "value" : "A0F68465-FB26-4CD0-962C-61CF5F31FE8D"
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      "transform" : {
+                                        "matrix" : [
+                                          1,
+                                          0,
+                                          0,
+                                          0,
+                                          0,
+                                          1,
+                                          0,
+                                          0,
+                                          0,
+                                          0,
+                                          1,
+                                          0,
+                                          0,
+                                          0,
+                                          0,
+                                          1
+                                        ]
+                                      }
+                                    },
+                                    "FbxWorldNode" : {
+                                      "overrides" : {
+                                        "arguments" : [
+                                          [
+                                            "includeSceneScaling",
+                                            {
+                                              "typeName" : "Bool",
+                                              "value" : false
+                                            }
+                                          ],
+                                          [
+                                            "subpath",
+                                            {
+                                              "typeName" : "String",
+                                              "value" : "fiberglass_dsr\/FbxWorldNode"
+                                            }
+                                          ],
+                                          [
+                                            "url",
+                                            {
+                                              "typeName" : "String",
+                                              "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                            }
+                                          ],
+                                          [
+                                            "withDescendants",
+                                            {
+                                              "typeName" : "Bool",
+                                              "value" : false
+                                            }
+                                          ]
+                                        ],
+                                        "children" : {
+                                          "_MODELSPACE" : {
+                                            "overrides" : {
+                                              "arguments" : [
+                                                [
+                                                  "includeSceneScaling",
+                                                  {
+                                                    "typeName" : "Bool",
+                                                    "value" : false
+                                                  }
+                                                ],
+                                                [
+                                                  "subpath",
+                                                  {
+                                                    "typeName" : "String",
+                                                    "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE"
+                                                  }
+                                                ],
+                                                [
+                                                  "url",
+                                                  {
+                                                    "typeName" : "String",
+                                                    "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                  }
+                                                ],
+                                                [
+                                                  "withDescendants",
+                                                  {
+                                                    "typeName" : "Bool",
+                                                    "value" : false
+                                                  }
+                                                ]
+                                              ],
+                                              "children" : {
+                                                "XCAD03E1D8941E7CF38D23886B2571C1BD987C" : {
+                                                  "overrides" : {
+                                                    "arguments" : [
+                                                      [
+                                                        "includeSceneScaling",
+                                                        {
+                                                          "typeName" : "Bool",
+                                                          "value" : false
+                                                        }
+                                                      ],
+                                                      [
+                                                        "subpath",
+                                                        {
+                                                          "typeName" : "String",
+                                                          "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C"
+                                                        }
+                                                      ],
+                                                      [
+                                                        "url",
+                                                        {
+                                                          "typeName" : "String",
+                                                          "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                        }
+                                                      ],
+                                                      [
+                                                        "withDescendants",
+                                                        {
+                                                          "typeName" : "Bool",
+                                                          "value" : false
+                                                        }
+                                                      ]
+                                                    ],
+                                                    "children" : {
+                                                      "_2VITRA_CLASSIC_D3_DSR_FIBERGLAS_FRAME" : {
+                                                        "overrides" : {
+                                                          "arguments" : [
+                                                            [
+                                                              "includeSceneScaling",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : false
+                                                              }
+                                                            ],
+                                                            [
+                                                              "subpath",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C\/_2VITRA_CLASSIC_D3_DSR_FIBERGLAS_FRAME"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "url",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "withDescendants",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : true
+                                                              }
+                                                            ]
+                                                          ],
+                                                          "factory" : {
+                                                            "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                            "version" : "0.0"
+                                                          },
+                                                          "runtimeAttributes" : [
+                                                            [
+                                                              "RuntimeIdentifier",
+                                                              {
+                                                                "typeName" : "UUID",
+                                                                "value" : "3C12FDF8-DDD4-4F48-A54F-297D5C38B263"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "transform" : {
+                                                          "matrix" : [
+                                                            1,
+                                                            -6.1435585507751966e-08,
+                                                            -1.5894713669695193e-06,
+                                                            0,
+                                                            6.1435585507751966e-08,
+                                                            1,
+                                                            -6.7762635780344027e-21,
+                                                            0,
+                                                            1.5894713669695193e-06,
+                                                            -9.7650118785312656e-14,
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1
+                                                          ]
+                                                        }
+                                                      },
+                                                      "_2VITRA_CLASSIC_D3_DSR_FIBERGLAS_GLIDES" : {
+                                                        "overrides" : {
+                                                          "arguments" : [
+                                                            [
+                                                              "includeSceneScaling",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : false
+                                                              }
+                                                            ],
+                                                            [
+                                                              "subpath",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C\/_2VITRA_CLASSIC_D3_DSR_FIBERGLAS_GLIDES"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "url",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "withDescendants",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : true
+                                                              }
+                                                            ]
+                                                          ],
+                                                          "factory" : {
+                                                            "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                            "version" : "0.0"
+                                                          },
+                                                          "runtimeAttributes" : [
+                                                            [
+                                                              "RuntimeIdentifier",
+                                                              {
+                                                                "typeName" : "UUID",
+                                                                "value" : "EE03DE59-528D-40E7-81B6-7AE961A96618"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "transform" : {
+                                                          "matrix" : [
+                                                            1,
+                                                            -6.1435585507751966e-08,
+                                                            -1.5894713669695193e-06,
+                                                            0,
+                                                            6.1435585507751966e-08,
+                                                            1,
+                                                            -6.7762635780344027e-21,
+                                                            0,
+                                                            1.5894713669695193e-06,
+                                                            -9.7650118785312656e-14,
+                                                            1,
+                                                            0,
+                                                            -0.19499966502189636,
+                                                            -0.21200031042098999,
+                                                            0,
+                                                            1
+                                                          ]
+                                                        }
+                                                      },
+                                                      "_2VITRA_CLASSIC_D3_DSR_FIBERGLAS_SCREW" : {
+                                                        "overrides" : {
+                                                          "arguments" : [
+                                                            [
+                                                              "includeSceneScaling",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : false
+                                                              }
+                                                            ],
+                                                            [
+                                                              "subpath",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C\/_2VITRA_CLASSIC_D3_DSR_FIBERGLAS_SCREW"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "url",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "withDescendants",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : true
+                                                              }
+                                                            ]
+                                                          ],
+                                                          "factory" : {
+                                                            "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                            "version" : "0.0"
+                                                          },
+                                                          "runtimeAttributes" : [
+                                                            [
+                                                              "RuntimeIdentifier",
+                                                              {
+                                                                "typeName" : "UUID",
+                                                                "value" : "7BB97DA0-2965-4BF4-A07A-66EB673DA1F8"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "transform" : {
+                                                          "matrix" : [
+                                                            1,
+                                                            -6.1435585507751966e-08,
+                                                            -1.5894713669695193e-06,
+                                                            0,
+                                                            6.1435585507751966e-08,
+                                                            1,
+                                                            -6.7762635780344027e-21,
+                                                            0,
+                                                            1.5894713669695193e-06,
+                                                            -9.7650118785312656e-14,
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1
+                                                          ]
+                                                        }
+                                                      },
+                                                      "_2VITRA_CLASSIC_D3_DSR_FIBERGLAS_SHOCKMOUNTS" : {
+                                                        "overrides" : {
+                                                          "arguments" : [
+                                                            [
+                                                              "includeSceneScaling",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : false
+                                                              }
+                                                            ],
+                                                            [
+                                                              "subpath",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C\/_2VITRA_CLASSIC_D3_DSR_FIBERGLAS_SHOCKMOUNTS"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "url",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "withDescendants",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : true
+                                                              }
+                                                            ]
+                                                          ],
+                                                          "factory" : {
+                                                            "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                            "version" : "0.0"
+                                                          },
+                                                          "runtimeAttributes" : [
+                                                            [
+                                                              "RuntimeIdentifier",
+                                                              {
+                                                                "typeName" : "UUID",
+                                                                "value" : "02C0A6C8-E310-49FF-872C-8F3096DCA487"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "transform" : {
+                                                          "matrix" : [
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1,
+                                                            0,
+                                                            -3.3000000598804036e-07,
+                                                            0,
+                                                            0,
+                                                            1
+                                                          ]
+                                                        }
+                                                      },
+                                                      "_2VITRA_CLASSIC_D3_DSR_SHELL_FIBERGLASS" : {
+                                                        "overrides" : {
+                                                          "arguments" : [
+                                                            [
+                                                              "includeSceneScaling",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : false
+                                                              }
+                                                            ],
+                                                            [
+                                                              "subpath",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C\/_2VITRA_CLASSIC_D3_DSR_SHELL_FIBERGLASS"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "url",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "withDescendants",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : false
+                                                              }
+                                                            ]
+                                                          ],
+                                                          "children" : {
+                                                            "FbxMesh_004" : {
+                                                              "overrides" : {
+                                                                "arguments" : [
+                                                                  [
+                                                                    "includeSceneScaling",
+                                                                    {
+                                                                      "typeName" : "Bool",
+                                                                      "value" : false
+                                                                    }
+                                                                  ],
+                                                                  [
+                                                                    "subpath",
+                                                                    {
+                                                                      "typeName" : "String",
+                                                                      "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C\/_2VITRA_CLASSIC_D3_DSR_SHELL_FIBERGLASS\/FbxMesh_004"
+                                                                    }
+                                                                  ],
+                                                                  [
+                                                                    "url",
+                                                                    {
+                                                                      "typeName" : "String",
+                                                                      "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                                    }
+                                                                  ],
+                                                                  [
+                                                                    "withDescendants",
+                                                                    {
+                                                                      "typeName" : "Bool",
+                                                                      "value" : false
+                                                                    }
+                                                                  ]
+                                                                ],
+                                                                "children" : {
+                                                                  "FbxMesh_004" : {
+                                                                    "overrides" : {
+                                                                      "arguments" : [
+                                                                        [
+                                                                          "includeSceneScaling",
+                                                                          {
+                                                                            "typeName" : "Bool",
+                                                                            "value" : false
+                                                                          }
+                                                                        ],
+                                                                        [
+                                                                          "subpath",
+                                                                          {
+                                                                            "typeName" : "String",
+                                                                            "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C\/_2VITRA_CLASSIC_D3_DSR_SHELL_FIBERGLASS\/FbxMesh_004\/FbxMesh_004"
+                                                                          }
+                                                                        ],
+                                                                        [
+                                                                          "url",
+                                                                          {
+                                                                            "typeName" : "String",
+                                                                            "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                                          }
+                                                                        ],
+                                                                        [
+                                                                          "withDescendants",
+                                                                          {
+                                                                            "typeName" : "Bool",
+                                                                            "value" : true
+                                                                          }
+                                                                        ]
+                                                                      ],
+                                                                      "factory" : {
+                                                                        "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                                        "version" : "0.0"
+                                                                      },
+                                                                      "runtimeAttributes" : [
+                                                                        [
+                                                                          "RuntimeIdentifier",
+                                                                          {
+                                                                            "typeName" : "UUID",
+                                                                            "value" : "1DE4053D-E629-43BF-ADCF-CC0AA7233117"
+                                                                          }
+                                                                        ]
+                                                                      ]
+                                                                    },
+                                                                    "transform" : {
+                                                                      "matrix" : [
+                                                                        1,
+                                                                        -1.2516978813437163e-06,
+                                                                        4.1723274080140982e-07,
+                                                                        0,
+                                                                        1.2516977676568786e-06,
+                                                                        0.99999970197677612,
+                                                                        -4.4320984216028592e-07,
+                                                                        0,
+                                                                        -4.1723205868038349e-07,
+                                                                        4.4321035375105566e-07,
+                                                                        0.99999970197677612,
+                                                                        0,
+                                                                        1.2632789037070324e-07,
+                                                                        -2.6745292203145254e-08,
+                                                                        1.458728338121773e-08,
+                                                                        1
+                                                                      ]
+                                                                    }
+                                                                  }
+                                                                },
+                                                                "factory" : {
+                                                                  "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                                  "version" : "0.0"
+                                                                },
+                                                                "runtimeAttributes" : [
+                                                                  [
+                                                                    "RuntimeIdentifier",
+                                                                    {
+                                                                      "typeName" : "UUID",
+                                                                      "value" : "ACF524BA-DEF4-49DE-8307-FE58DCBF987E"
+                                                                    }
+                                                                  ]
+                                                                ]
+                                                              },
+                                                              "transform" : {
+                                                                "matrix" : [
+                                                                  1,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  1,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  0,
+                                                                  1,
+                                                                  0,
+                                                                  3.4000001392087142e-07,
+                                                                  0.12574106454849243,
+                                                                  -0.44901499152183533,
+                                                                  1
+                                                                ]
+                                                              }
+                                                            }
+                                                          },
+                                                          "factory" : {
+                                                            "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                            "version" : "0.0"
+                                                          },
+                                                          "runtimeAttributes" : [
+                                                            [
+                                                              "RuntimeIdentifier",
+                                                              {
+                                                                "typeName" : "UUID",
+                                                                "value" : "7C6A4B21-DA3B-4BCC-844B-AF59DC47A902"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "transform" : {
+                                                          "matrix" : [
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1,
+                                                            0,
+                                                            -3.4000001392087142e-07,
+                                                            -0.12574106454849243,
+                                                            0.44901499152183533,
+                                                            1
+                                                          ]
+                                                        }
+                                                      },
+                                                      "_2vitra_classic24B7EE636CC4B40CB9C980B60A926A232" : {
+                                                        "overrides" : {
+                                                          "arguments" : [
+                                                            [
+                                                              "includeSceneScaling",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : false
+                                                              }
+                                                            ],
+                                                            [
+                                                              "subpath",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "fiberglass_dsr\/FbxWorldNode\/_MODELSPACE\/XCAD03E1D8941E7CF38D23886B2571C1BD987C\/_2vitra_classic24B7EE636CC4B40CB9C980B60A926A232"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "url",
+                                                              {
+                                                                "typeName" : "String",
+                                                                "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                              }
+                                                            ],
+                                                            [
+                                                              "withDescendants",
+                                                              {
+                                                                "typeName" : "Bool",
+                                                                "value" : true
+                                                              }
+                                                            ]
+                                                          ],
+                                                          "factory" : {
+                                                            "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                            "version" : "0.0"
+                                                          },
+                                                          "runtimeAttributes" : [
+                                                            [
+                                                              "RuntimeIdentifier",
+                                                              {
+                                                                "typeName" : "UUID",
+                                                                "value" : "DCCDEED4-F1FD-40B1-B524-4CB87D29440F"
+                                                              }
+                                                            ]
+                                                          ]
+                                                        },
+                                                        "transform" : {
+                                                          "matrix" : [
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            0,
+                                                            1
+                                                          ]
+                                                        }
+                                                      }
+                                                    },
+                                                    "factory" : {
+                                                      "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                      "version" : "0.0"
+                                                    },
+                                                    "runtimeAttributes" : [
+                                                      [
+                                                        "RuntimeIdentifier",
+                                                        {
+                                                          "typeName" : "UUID",
+                                                          "value" : "DDA144F7-D028-4AFF-B89B-0E7D98226F9F"
+                                                        }
+                                                      ]
+                                                    ]
+                                                  },
+                                                  "transform" : {
+                                                    "matrix" : [
+                                                      1,
+                                                      0,
+                                                      0,
+                                                      0,
+                                                      0,
+                                                      1,
+                                                      0,
+                                                      0,
+                                                      0,
+                                                      0,
+                                                      1,
+                                                      0,
+                                                      0,
+                                                      0,
+                                                      0,
+                                                      1
+                                                    ]
+                                                  }
+                                                }
+                                              },
+                                              "factory" : {
+                                                "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                "version" : "0.0"
+                                              },
+                                              "runtimeAttributes" : [
+                                                [
+                                                  "RuntimeIdentifier",
+                                                  {
+                                                    "typeName" : "UUID",
+                                                    "value" : "885E9A76-288B-4872-9ED0-D36E593BDBFE"
+                                                  }
+                                                ]
+                                              ]
+                                            },
+                                            "transform" : {
+                                              "matrix" : [
+                                                1,
+                                                0,
+                                                0,
+                                                0,
+                                                0,
+                                                1,
+                                                0,
+                                                0,
+                                                0,
+                                                0,
+                                                1,
+                                                0,
+                                                0,
+                                                0,
+                                                0,
+                                                1
+                                              ]
+                                            }
+                                          },
+                                          "LightsNode" : {
+                                            "overrides" : {
+                                              "arguments" : [
+                                                [
+                                                  "includeSceneScaling",
+                                                  {
+                                                    "typeName" : "Bool",
+                                                    "value" : false
+                                                  }
+                                                ],
+                                                [
+                                                  "subpath",
+                                                  {
+                                                    "typeName" : "String",
+                                                    "value" : "fiberglass_dsr\/FbxWorldNode\/LightsNode"
+                                                  }
+                                                ],
+                                                [
+                                                  "url",
+                                                  {
+                                                    "typeName" : "String",
+                                                    "value" : "model:7251d4613b3daf1ecbe1db64c6b25b3e\/fiberglass_dsr.usdz"
+                                                  }
+                                                ],
+                                                [
+                                                  "withDescendants",
+                                                  {
+                                                    "typeName" : "Bool",
+                                                    "value" : true
+                                                  }
+                                                ]
+                                              ],
+                                              "factory" : {
+                                                "identifier" : "com.apple.af.FileImportAssetFactory",
+                                                "version" : "0.0"
+                                              },
+                                              "runtimeAttributes" : [
+                                                [
+                                                  "RuntimeIdentifier",
+                                                  {
+                                                    "typeName" : "UUID",
+                                                    "value" : "ABEA30A7-0986-43D1-9A42-016AEC8C84B3"
+                                                  }
+                                                ]
+                                              ]
+                                            },
+                                            "transform" : {
+                                              "matrix" : [
+                                                1,
+                                                0,
+                                                0,
+                                                0,
+                                                0,
+                                                1,
+                                                0,
+                                                0,
+                                                0,
+                                                0,
+                                                1,
+                                                0,
+                                                0,
+                                                0,
+                                                0,
+                                                1
+                                              ]
+                                            }
+                                          }
+                                        },
+                                        "factory" : {
+                                          "identifier" : "com.apple.af.FileImportAssetFactory",
+                                          "version" : "0.0"
+                                        },
+                                        "runtimeAttributes" : [
+                                          [
+                                            "RuntimeIdentifier",
+                                            {
+                                              "typeName" : "UUID",
+                                              "value" : "E24AF474-E5C8-4ED0-95BB-9BB492BE34DC"
+                                            }
+                                          ]
+                                        ]
+                                      },
+                                      "transform" : {
+                                        "matrix" : [
+                                          1,
+                                          0,
+                                          0,
+                                          0,
+                                          0,
+                                          1,
+                                          -4.371138473402425e-08,
+                                          0,
+                                          0,
+                                          4.371138473402425e-08,
+                                          1,
+                                          0,
+                                          0,
+                                          0,
+                                          0,
+                                          1
+                                        ]
+                                      }
+                                    }
+                                  },
+                                  "factory" : {
+                                    "identifier" : "com.apple.af.FileImportAssetFactory",
+                                    "version" : "0.0"
+                                  },
+                                  "runtimeAttributes" : [
+                                    [
+                                      "RuntimeIdentifier",
+                                      {
+                                        "typeName" : "UUID",
+                                        "value" : "CE1AC389-A9E9-4066-A7AF-EAFC047F640C"
+                                      }
+                                    ]
+                                  ]
+                                },
+                                "transform" : {
+                                  "matrix" : [
+                                    1,
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    1,
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    1,
+                                    0,
+                                    0,
+                                    0,
+                                    0,
+                                    1
+                                  ]
+                                }
+                              }
+                            },
+                            "factory" : {
+                              "identifier" : "com.apple.af.FileImportAssetFactory",
+                              "version" : "0.0"
+                            },
+                            "runtimeAttributes" : [
+                              [
+                                "RuntimeIdentifier",
+                                {
+                                  "typeName" : "UUID",
+                                  "value" : "0DE84724-566F-4C3E-BD39-6394D81A5180"
+                                }
+                              ]
+                            ]
+                          },
+                          "transform" : {
+                            "matrix" : [
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1,
+                              0,
+                              0,
+                              0,
+                              0,
+                              1
+                            ]
+                          }
+                        }
+                      },
+                      "factory" : {
+                        "identifier" : "com.apple.af.Group",
+                        "version" : "0.0"
+                      },
+                      "runtimeAttributes" : [
+                        [
+                          "RuntimeIdentifier",
+                          {
+                            "typeName" : "UUID",
+                            "value" : "9F05709B-D79C-434C-AD01-A77BEB994EC9"
+                          }
+                        ]
+                      ]
+                    },
+                    "transform" : {
+                      "matrix" : [
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0,
+                        0.93739986419677734,
                         0,
                         0,
                         1

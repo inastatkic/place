@@ -15,10 +15,18 @@ enum Kind {
 
 final class VirtualObject {
     var name: String
-    var entity: ModelEntity?
-    var kind: Kind?
+    var entity: ModelEntity? {
+        didSet {
+            entity?.name = name
+        }
+    }
     
     init(name: String) {
+        self.name = name
+    }
+    
+    init(name: String, entity: ModelEntity) {
+        self.entity = entity
         self.name = name
     }
     
@@ -26,7 +34,6 @@ final class VirtualObject {
     
     func loadAsync() {
         let filename = "\(name).usdz"
-        
         loadRequest = Entity.loadModelAsync(named: filename)
 //            .append(Entity.loadModelAsync(named: "MyOtherEntity"))
 //            .collect()

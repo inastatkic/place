@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct Swatch: View {
+struct SwatchView: View {
     var name: String
     @Binding var swatch: String
     var isSelected: Bool {
@@ -15,10 +15,17 @@ struct Swatch: View {
     }
     
     var body: some View {
-        Circle()
-            .frame(width: 28, height: 28)
-            .foregroundColor(Color(name))
-            .tag(name)
+        // TODO: Generalize
+        if name[..<name.firstIndex(of: ".")!] == "fiberglass" {
+            Image(name)
+                .resizable()
+                .frame(width: 28, height: 28)
+                .clipShape(Circle())
+        } else {
+            Circle()
+                .frame(width: 28, height: 28)
+                .foregroundColor(Color(name))
+        }
         if isSelected {
             Circle()
                 .strokeBorder(Color(.white), lineWidth: 3, antialiased: true)

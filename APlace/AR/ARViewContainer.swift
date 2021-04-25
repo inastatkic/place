@@ -12,13 +12,12 @@ import ARKit
 struct ARViewContainer: UIViewRepresentable {
     let arView = ARView(frame: .zero)
     @Binding var virtualObject: VirtualObject?
-    var touchPoint: ((CGPoint, ModelEntity) -> Void)
+    var touchEntity: ((CGPoint, ModelEntity) -> Void)
     
     func makeUIView(context: Context) -> ARView {
         
         // Prevent the screen from being dimmed to avoid interrupting the AR experience.
         UIApplication.shared.isIdleTimerDisabled = true
-
         
         // MARK: - Environment
         
@@ -42,19 +41,19 @@ struct ARViewContainer: UIViewRepresentable {
         configuration.sceneReconstruction = .meshWithClassification
         configuration.planeDetection = [.horizontal, .vertical]
         configuration.environmentTexturing = .automatic
+        configuration.isLightEstimationEnabled = true
         arView.session.run(configuration)
         
         // MARK: - Debug
         
         // Display a debug visualization of the mesh
 //        arView.debugOptions.insert(.showSceneUnderstanding)
-        
-//        arView.debugOptions.insert(.showFeaturePoints)
+        arView.debugOptions.insert(.showAnchorOrigins)
         
         // MARK: - Render
         
         // For performance, disable render options that are not required for this app.
-        arView.renderOptions = [.disableMotionBlur]
+        arView.renderOptions = [.disableMotionBlur, .disableFaceOcclusions]
         
         // MARK: - Experience
         
@@ -64,29 +63,36 @@ struct ARViewContainer: UIViewRepresentable {
         // Add the object anchor to the scene
 //        arView.scene.anchors.append(objectAnchor)
         
+        
         // MARK: - Actions
         
         let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap))
         arView.addGestureRecognizer(tapGesture)
         
+        let touchGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTouch))
+        touchGesture.numberOfTouchesRequired = 2
+        arView.addGestureRecognizer(touchGesture)
+        
         let longPressGesture = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleLongPress))
         longPressGesture.allowableMovement = 100
         arView.addGestureRecognizer(longPressGesture)
+        
+        arView.session.delegate = context.coordinator
         
         return arView
     }
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self, touchPoint: touchPoint)
+        Coordinator(self, touchEntity: touchEntity)
     }
     
-    class Coordinator: NSObject {
+    class Coordinator: NSObject, ARSessionDelegate {
         var arViewContainer: ARViewContainer
-        var touchPoint: ((CGPoint, ModelEntity) -> Void)
+        var touchEntity: ((CGPoint, ModelEntity) -> Void)
         
-        init(_ arViewContainer: ARViewContainer, touchPoint: @escaping ((CGPoint, ModelEntity) -> Void)) {
+        init(_ arViewContainer: ARViewContainer, touchEntity: @escaping ((CGPoint, ModelEntity) -> Void)) {
             self.arViewContainer = arViewContainer
-            self.touchPoint = touchPoint
+            self.touchEntity = touchEntity
         }
         
         // MARK: - Actions
@@ -101,15 +107,24 @@ struct ARViewContainer: UIViewRepresentable {
                 if let virtualObject = arViewContainer.virtualObject?.entity {
                     place(virtualObject, at: resultAnchor, in: arViewContainer.arView)
                 }
+                
+                nearbyFaceWithClassification(to: result.worldTransform.position) { (centerOfFace, classification) in
+                    
+                    // Center of the face (if any was found)
+                    //    It is possible that this is nil, e.g. if there was no face close enough to the tap location.
+//                    if let centerOfFace = centerOfFace {
+                        print(classification.description)
+//                    }
+                    
+                    DispatchQueue.main.async {
+                        // TODO: Visualize the classification result.
+                    }
+                }
             }
         }
         
-        private func place(_ entity: ModelEntity, at anchor: AnchorEntity, in arView: ARView) {
-            let entity = entity.clone(recursive: true)
-            entity.generateCollisionShapes(recursive: true)
-            arView.installGestures([.translation, .rotation], for: entity)
-            anchor.addChild(entity)
-            arView.scene.addAnchor(anchor)
+        @objc func handleTwoTaps(sender: UITapGestureRecognizer) {
+            
         }
         
         @objc func handleLongPress(sender: UILongPressGestureRecognizer) {
@@ -117,8 +132,28 @@ struct ARViewContainer: UIViewRepresentable {
             // Entity under touch point
             guard let entity = arViewContainer.arView.entity(at: touchPoint) else { return }
             if entity.anchor != nil {
-                self.touchPoint(touchPoint, entity as! ModelEntity)
+                touchEntity(touchPoint, entity as! ModelEntity)
+                arViewContainer.virtualObject = VirtualObject(name: entity.name, entity: entity as! ModelEntity)
             }
+        }
+        
+        @objc func handleTouch(sender: UITapGestureRecognizer) {
+            let touchPoint = sender.location(in: arViewContainer.arView)
+            guard let entity = arViewContainer.arView.entity(at: touchPoint) else { return }
+            entity.removeFromParent()
+            // TODO: remove the point and model
+            touchEntity(CGPoint(x: -100, y: -100), ModelEntity())
+        }
+        
+        // MARK: - ARSession Delegate
+        
+        func session(_ session: ARSession, didUpdate frame: ARFrame) {
+            guard let lightEstimate = session.currentFrame?.lightEstimate else { return }
+            print(lightEstimate.ambientColorTemperature)
+            print(lightEstimate.ambientIntensity)
+//            let directionalLightEstimate = lightEstimate as? ARDirectionalLightEstimate
+//            print(directionalLightEstimate?.primaryLightDirection)
+//            print(directionalLightEstimate?.primaryLightIntensity)
         }
         
     }
