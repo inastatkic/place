@@ -13,6 +13,14 @@ extension ARViewContainer.Coordinator {
         arView.scene.addAnchor(anchor)
     }
     
+    func mark(at anchor: AnchorEntity, in arView: ARView) {
+        let sphere = ModelEntity(mesh: .generateSphere(radius: 0.01), materials: [UnlitMaterial(color: .white)])
+        // Move sphere up by half its diameter so that it does not intersect with the mesh
+        sphere.position.y = 0.01
+        anchor.addChild(sphere)
+        arView.scene.addAnchor(anchor)
+    }
+    
     func nearbyFaceWithClassification(to location: SIMD3<Float>, completionBlock: @escaping (SIMD3<Float>?, ARMeshClassification) -> Void) {
         guard let frame = arViewContainer.arView.session.currentFrame else {
             completionBlock(nil, .none)

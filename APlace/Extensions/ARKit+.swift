@@ -17,6 +17,20 @@ extension ARMeshClassification {
         @unknown default: return "Unknown"
         }
     }
+    
+    var suggestion: String {
+        switch self {
+        case .ceiling: return ""
+        case .door: return ""
+        case .floor: return ""
+        case .seat: return ""
+        case .table: return ""
+        case .wall: return ""
+        case .window: return "Daylight"
+        case .none: return ""
+        @unknown default: return "Unknown"
+        }
+    }
 }
 
 extension ARMeshGeometry {

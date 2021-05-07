@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D28618C26457B4800C495F0 /* ContextSuggestion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D28618B26457B4800C495F0 /* ContextSuggestion.swift */; };
 		4D43C8F126142C3600D2AF71 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D43C8F026142C3600D2AF71 /* Launch Screen.storyboard */; };
 		4D6E11BA2623B53B0023AC87 /* SwatchPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6E11B92623B53B0023AC87 /* SwatchPicker.swift */; };
 		4D872D1A261BCD4A0005FB5B /* VirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D872D19261BCD4A0005FB5B /* VirtualObject.swift */; };
@@ -14,6 +15,7 @@
 		4D8A2E24261FB85600CC4436 /* CompositionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8A2E23261FB85600CC4436 /* CompositionsView.swift */; };
 		4DA83A9126237AC4004773F1 /* Swatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DA83A9026237AC4004773F1 /* Swatch.swift */; };
 		4DB05C2E2628BC310062ED94 /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DB05C2D2628BC310062ED94 /* Assets.swift */; };
+		4DE8EBD726455BF7004703CE /* ARClassification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE8EBD626455BF7004703CE /* ARClassification.swift */; };
 		4DE9DE5526121E4C0082AD9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9DE5426121E4C0082AD9B /* AppDelegate.swift */; };
 		4DE9DE5726121E4C0082AD9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9DE5626121E4C0082AD9B /* ContentView.swift */; };
 		4DE9DE5926121E4C0082AD9B /* Experience.rcproject in Sources */ = {isa = PBXBuildFile; fileRef = 4DE9DE5826121E4C0082AD9B /* Experience.rcproject */; };
@@ -24,7 +26,7 @@
 		4DF2D8972623681400F1252B /* SwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D8962623681400F1252B /* SwatchView.swift */; };
 		4DF4EAE0261B168E0041281B /* VirtualObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4EADF261B168E0041281B /* VirtualObjectEntity.swift */; };
 		A9830D8A263486F7007EF01B /* fiberglassSideChair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A9830D89263486F7007EF01B /* fiberglassSideChair.usdz */; };
-		A983A8FB2631E812003E0465 /* ARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983A8FA2631E812003E0465 /* ARView.swift */; };
+		A983A8FB2631E812003E0465 /* ARViewContainer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983A8FA2631E812003E0465 /* ARViewContainer+.swift */; };
 		A9B72D62262B947000707D51 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B72D61262B947000707D51 /* Composition.swift */; };
 		A9B72D6F262B9B6C00707D51 /* LightComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B72D6E262B9B6C00707D51 /* LightComponent.swift */; };
 		A9B72D72262B9B8600707D51 /* CompositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B72D71262B9B8600707D51 /* CompositionView.swift */; };
@@ -33,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4D28618B26457B4800C495F0 /* ContextSuggestion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContextSuggestion.swift; sourceTree = "<group>"; };
 		4D43C8F026142C3600D2AF71 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		4D6E11B92623B53B0023AC87 /* SwatchPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchPicker.swift; sourceTree = "<group>"; };
 		4D872D19261BCD4A0005FB5B /* VirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObject.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		4D8A2E23261FB85600CC4436 /* CompositionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionsView.swift; sourceTree = "<group>"; };
 		4DA83A9026237AC4004773F1 /* Swatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swatch.swift; sourceTree = "<group>"; };
 		4DB05C2D2628BC310062ED94 /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
+		4DE8EBD626455BF7004703CE /* ARClassification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARClassification.swift; sourceTree = "<group>"; };
 		4DE9DE5126121E4C0082AD9B /* APlace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = APlace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE9DE5426121E4C0082AD9B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DE9DE5626121E4C0082AD9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -52,7 +56,7 @@
 		4DF2D8962623681400F1252B /* SwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchView.swift; sourceTree = "<group>"; };
 		4DF4EADF261B168E0041281B /* VirtualObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectEntity.swift; sourceTree = "<group>"; };
 		A9830D89263486F7007EF01B /* fiberglassSideChair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fiberglassSideChair.usdz; sourceTree = "<group>"; };
-		A983A8FA2631E812003E0465 /* ARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARView.swift; sourceTree = "<group>"; };
+		A983A8FA2631E812003E0465 /* ARViewContainer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewContainer+.swift"; sourceTree = "<group>"; };
 		A9B72D61262B947000707D51 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		A9B72D6E262B9B6C00707D51 /* LightComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightComponent.swift; sourceTree = "<group>"; };
 		A9B72D71262B9B8600707D51 /* CompositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionView.swift; sourceTree = "<group>"; };
@@ -71,10 +75,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D28618A2645798900C495F0 /* Suggestions */ = {
+			isa = PBXGroup;
+			children = (
+				4D28618B26457B4800C495F0 /* ContextSuggestion.swift */,
+			);
+			path = Suggestions;
+			sourceTree = "<group>";
+		};
 		4D49CF372624774D00B2C9A3 /* Interior */ = {
 			isa = PBXGroup;
 			children = (
 				4DE9DE5626121E4C0082AD9B /* ContentView.swift */,
+				4D28618A2645798900C495F0 /* Suggestions */,
 				A9B72D67262B9A3F00707D51 /* Compositions */,
 				4DF2D89426231AEA00F1252B /* Controls */,
 			);
@@ -192,8 +205,9 @@
 		A9CE6C292636029600E73461 /* AR */ = {
 			isa = PBXGroup;
 			children = (
-				A983A8FA2631E812003E0465 /* ARView.swift */,
+				A983A8FA2631E812003E0465 /* ARViewContainer+.swift */,
 				4DF2D8872621377500F1252B /* ARViewContainer.swift */,
+				4DE8EBD626455BF7004703CE /* ARClassification.swift */,
 			);
 			path = AR;
 			sourceTree = "<group>";
@@ -273,14 +287,16 @@
 				4D872D1A261BCD4A0005FB5B /* VirtualObject.swift in Sources */,
 				A9B72D62262B947000707D51 /* Composition.swift in Sources */,
 				A9B72D6F262B9B6C00707D51 /* LightComponent.swift in Sources */,
+				4D28618C26457B4800C495F0 /* ContextSuggestion.swift in Sources */,
 				A9CE6C272636026B00E73461 /* RealityKit+.swift in Sources */,
 				4DF2D8882621377500F1252B /* ARViewContainer.swift in Sources */,
 				4D8A2E24261FB85600CC4436 /* CompositionsView.swift in Sources */,
-				A983A8FB2631E812003E0465 /* ARView.swift in Sources */,
+				A983A8FB2631E812003E0465 /* ARViewContainer+.swift in Sources */,
 				4D6E11BA2623B53B0023AC87 /* SwatchPicker.swift in Sources */,
 				4DE9DE5726121E4C0082AD9B /* ContentView.swift in Sources */,
 				4DE9DE5526121E4C0082AD9B /* AppDelegate.swift in Sources */,
 				4DA83A9126237AC4004773F1 /* Swatch.swift in Sources */,
+				4DE8EBD726455BF7004703CE /* ARClassification.swift in Sources */,
 				4DB05C2E2628BC310062ED94 /* Assets.swift in Sources */,
 				4DE9DE5926121E4C0082AD9B /* Experience.rcproject in Sources */,
 				4DF2D8832620C01200F1252B /* simd_float4x4.swift in Sources */,

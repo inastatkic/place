@@ -12,7 +12,8 @@ import ARKit
 struct ARViewContainer: UIViewRepresentable {
     let arView = ARView(frame: .zero)
     @Binding var virtualObject: VirtualObject?
-    var touchEntity: ((CGPoint, ModelEntity) -> Void)
+    var touchEntity: ((CGPoint, ModelEntity) -> ())
+    var surfaceClassification: ((SurfaceClassification) -> ())
     
     func makeUIView(context: Context) -> ARView {
         
@@ -50,6 +51,7 @@ struct ARViewContainer: UIViewRepresentable {
 //        arView.debugOptions.insert(.showSceneUnderstanding)
         arView.debugOptions.insert(.showAnchorOrigins)
         
+        
         // MARK: - Render
         
         // For performance, disable render options that are not required for this app.
@@ -70,7 +72,7 @@ struct ARViewContainer: UIViewRepresentable {
         arView.addGestureRecognizer(tapGesture)
         
         let touchGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTouch))
-        touchGesture.numberOfTouchesRequired = 2
+        touchGesture.numberOfTouchesRequired = 3
         arView.addGestureRecognizer(touchGesture)
         
         let longPressGesture = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleLongPress))
@@ -79,52 +81,80 @@ struct ARViewContainer: UIViewRepresentable {
         
         arView.session.delegate = context.coordinator
         
+        // MARK: - ARView
+        
         return arView
     }
     
+    // MARK: - Coordinator
+    
     func makeCoordinator() -> Coordinator {
-        Coordinator(self, touchEntity: touchEntity)
+        Coordinator(self, touchEntity: touchEntity, surfaceClassification: surfaceClassification)
     }
     
     class Coordinator: NSObject, ARSessionDelegate {
         var arViewContainer: ARViewContainer
-        var touchEntity: ((CGPoint, ModelEntity) -> Void)
+        var touchEntity: ((CGPoint, ModelEntity) -> ())
+        var surfaceClassification: ((SurfaceClassification) -> ())
+        private var lastTouchPosition: SIMD3<Float>?
         
-        init(_ arViewContainer: ARViewContainer, touchEntity: @escaping ((CGPoint, ModelEntity) -> Void)) {
+        init(_ arViewContainer: ARViewContainer,
+             touchEntity: @escaping ((CGPoint, ModelEntity) -> ()),
+             surfaceClassification: @escaping ((SurfaceClassification) -> ())) {
             self.arViewContainer = arViewContainer
             self.touchEntity = touchEntity
+            self.surfaceClassification = surfaceClassification
         }
         
         // MARK: - Actions
         
         @objc func handleTap(sender: UITapGestureRecognizer) {
             let touchPoint = sender.location(in: arViewContainer.arView)
-            // Ray-cast allowing estimated plane with any alignment takes the mesh into account
-            if let result = arViewContainer.arView.raycast(from: touchPoint, allowing: .estimatedPlane, alignment: .any).first {
-                // Intersection point of the ray with the real-world surface.
-                let resultAnchor = AnchorEntity(world: result.worldTransform.position)
-                
+            
+            guard let ray = arViewContainer.arView.ray(through: touchPoint) else { return }
+            
+            // Ray-cast intersected with the virtual objects
+            if let result = arViewContainer.arView.scene.raycast(origin: ray.origin, direction: ray.direction).first {
+                // Intersection point of the ray with the virtual surface.
+                let resultAnchor = AnchorEntity(world: result.position)
+                // Place on top of the other virtual object
                 if let virtualObject = arViewContainer.virtualObject?.entity {
                     place(virtualObject, at: resultAnchor, in: arViewContainer.arView)
                 }
-                
-                nearbyFaceWithClassification(to: result.worldTransform.position) { (centerOfFace, classification) in
+            // Ray-cast intersected with the real-world surfaces
+            } else {
+                // Ray-cast allowing estimated plane with any alignment takes the mesh into account
+                if let result = arViewContainer.arView.raycast(from: touchPoint, allowing: .estimatedPlane, alignment: .any).first {
+                    // Intersection point of the ray with the real-world surface.
+                    let resultAnchor = AnchorEntity(world: result.worldTransform.position)
                     
-                    // Center of the face (if any was found)
-                    //    It is possible that this is nil, e.g. if there was no face close enough to the tap location.
-//                    if let centerOfFace = centerOfFace {
-                        print(classification.description)
-//                    }
+                    if let virtualObject = arViewContainer.virtualObject?.entity {
+                        place(virtualObject, at: resultAnchor, in: arViewContainer.arView)
+                    }
                     
-                    DispatchQueue.main.async {
-                        // TODO: Visualize the classification result.
+                    if let lastTouchPosition = lastTouchPosition {
+                        // Measure distance from touch to last touch
+                        print(distance(result.worldTransform.position, lastTouchPosition))
+                    }
+                    
+                    lastTouchPosition = result.worldTransform.position
+                    
+                    mark(at: resultAnchor, in: arViewContainer.arView)
+                    
+                    nearbyFaceWithClassification(to: result.worldTransform.position) { (centerOfFace, classification) in
+                        
+                        // Center of the face (if any was found)
+                        //    It is possible that this is nil, e.g. if there was no face close enough to the tap location.
+                        if let _ = centerOfFace {
+                            print(classification.description)
+                        }
+                        
+                        DispatchQueue.main.async {
+                            // TODO: Visualize the classification result.
+                        }
                     }
                 }
             }
-        }
-        
-        @objc func handleTwoTaps(sender: UITapGestureRecognizer) {
-            
         }
         
         @objc func handleLongPress(sender: UILongPressGestureRecognizer) {
@@ -148,15 +178,30 @@ struct ARViewContainer: UIViewRepresentable {
         // MARK: - ARSession Delegate
         
         func session(_ session: ARSession, didUpdate frame: ARFrame) {
-            guard let lightEstimate = session.currentFrame?.lightEstimate else { return }
-            print(lightEstimate.ambientColorTemperature)
-            print(lightEstimate.ambientIntensity)
+//            guard let lightEstimate = session.currentFrame?.lightEstimate else { return }
+//            print(lightEstimate.ambientColorTemperature)
+//            print(lightEstimate.ambientIntensity)
 //            let directionalLightEstimate = lightEstimate as? ARDirectionalLightEstimate
-//            print(directionalLightEstimate?.primaryLightDirection)
-//            print(directionalLightEstimate?.primaryLightIntensity)
+//            print(directionalLightEstimate.primaryLightDirection)
+//            print(directionalLightEstimate.primaryLightIntensity)
+        }
+        
+        func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
+//            print(arViewContainer.arView.scene.anchors)
+            // Session automatically attempts to detect surfaces
+            guard let anchor = anchors.first else { return }
+            guard let projection = arViewContainer.arView.project(anchor.transform.position) else { return }
+            nearbyFaceWithClassification(to: anchor.transform.position) { [weak self] (centerOfFace, classification) in
+                if let _ = centerOfFace {
+                    self?.surfaceClassification(SurfaceClassification(mesh: classification, point: projection))
+                }
+            }
+//            print(anchors)
         }
         
     }
+    
+    // MARK: - Update ARView
     
     func updateUIView(_ uiView: ARView, context: Context) {
         virtualObject?.loadAsync()

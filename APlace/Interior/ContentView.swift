@@ -13,6 +13,7 @@ struct ContentView : View {
     @State var touchEntity = (CGPoint(), ModelEntity())
     @State var virtualObject: VirtualObject?
     @State var swatches: [String] = []
+    @State var surfaceClassification = SurfaceClassification()
 
     var body: some View {
         ZStack {
@@ -23,8 +24,11 @@ struct ContentView : View {
                     let asset = Assets(rawValue: name)
                 else { return }
                 swatches = Assets(asset: asset).swatches()
+            } surfaceClassification: {
+                surfaceClassification = $0
             }.edgesIgnoringSafeArea(.all)
             SwatchPicker(swatches: $swatches, touchPoint: $touchEntity.0, model: $touchEntity.1)
+            ContextSuggestion(surfaceClassification: $surfaceClassification)
             VStack {
                 Spacer()
                 Button {
