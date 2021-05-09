@@ -1,7 +1,6 @@
 // Created by Ina Statkic in 2021.
 
 import ARKit.ARMeshGeometry
-import ARKit.ARMeshGeometry
 
 extension ARMeshClassification {
     var description: String {
@@ -20,14 +19,14 @@ extension ARMeshClassification {
     
     var suggestion: String {
         switch self {
-        case .ceiling: return ""
-        case .door: return ""
-        case .floor: return ""
-        case .seat: return ""
-        case .table: return ""
-        case .wall: return ""
+        case .ceiling: return "Space measurement relations"
+        case .door: return "Space measurement relations"
+        case .floor: return "Space measurement relations"
+        case .seat: return "Seat"
+        case .table: return "Table"
+        case .wall: return "Space measurement relations"
         case .window: return "Daylight"
-        case .none: return ""
+        case .none: return "None"
         @unknown default: return "Unknown"
         }
     }

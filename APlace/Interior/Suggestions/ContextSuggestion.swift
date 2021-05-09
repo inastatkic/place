@@ -13,9 +13,11 @@ struct ContextSuggestion: View {
     var body: some View {
         Text(surfaceClassification.mesh.suggestion)
             .textCase(.uppercase)
-            .position(surfaceClassification.point)
             .foregroundColor(.white)
             .padding()
+            .background(VisualEffect(style: .systemUltraThinMaterialDark))
+            .cornerRadius(10)
+            .position(surfaceClassification.projection)
             .contextMenu {
                 switch surfaceClassification.mesh {
                 case .window:

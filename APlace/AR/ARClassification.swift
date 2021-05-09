@@ -11,5 +11,5 @@ struct SurfaceClassification {
     var mesh: ARMeshClassification = .none
     var anchor: ARAnchor?
     // point from the 3D world to the pixel of the viewport
-    var point = CGPoint()
+    var projection = CGPoint()
 }

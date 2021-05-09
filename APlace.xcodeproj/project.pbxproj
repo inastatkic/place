@@ -25,13 +25,19 @@
 		4DF2D8882621377500F1252B /* ARViewContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D8872621377500F1252B /* ARViewContainer.swift */; };
 		4DF2D8972623681400F1252B /* SwatchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2D8962623681400F1252B /* SwatchView.swift */; };
 		4DF4EAE0261B168E0041281B /* VirtualObjectEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF4EADF261B168E0041281B /* VirtualObjectEntity.swift */; };
+		A9739D6C26483B6100B94870 /* YOLOv3TinyInt8LUT.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A9739D6B26483B6100B94870 /* YOLOv3TinyInt8LUT.mlmodel */; };
+		A9739D6E264841E300B94870 /* ARView+Vision.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9739D6D264841E300B94870 /* ARView+Vision.swift */; };
+		A9739D70264843DF00B94870 /* ARView+placement.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9739D6F264843DF00B94870 /* ARView+placement.swift */; };
+		A9739D722648526200B94870 /* CGImagePropertyOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9739D712648526200B94870 /* CGImagePropertyOrientation.swift */; };
+		A9739D7426485D6C00B94870 /* VisionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9739D7326485D6C00B94870 /* VisionModel.swift */; };
 		A9830D8A263486F7007EF01B /* fiberglassSideChair.usdz in Resources */ = {isa = PBXBuildFile; fileRef = A9830D89263486F7007EF01B /* fiberglassSideChair.usdz */; };
-		A983A8FB2631E812003E0465 /* ARViewContainer+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983A8FA2631E812003E0465 /* ARViewContainer+.swift */; };
+		A983A8FB2631E812003E0465 /* ARView+Classification.swift in Sources */ = {isa = PBXBuildFile; fileRef = A983A8FA2631E812003E0465 /* ARView+Classification.swift */; };
 		A9B72D62262B947000707D51 /* Composition.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B72D61262B947000707D51 /* Composition.swift */; };
 		A9B72D6F262B9B6C00707D51 /* LightComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B72D6E262B9B6C00707D51 /* LightComponent.swift */; };
 		A9B72D72262B9B8600707D51 /* CompositionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B72D71262B9B8600707D51 /* CompositionView.swift */; };
 		A9CE6C272636026B00E73461 /* RealityKit+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE6C262636026B00E73461 /* RealityKit+.swift */; };
 		A9CE6C2C263603ED00E73461 /* ARKit+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CE6C2B263603ED00E73461 /* ARKit+.swift */; };
+		A9F68CB92646DD810017C122 /* VisualEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F68CB82646DD810017C122 /* VisualEffect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,13 +61,19 @@
 		4DF2D8872621377500F1252B /* ARViewContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewContainer.swift; sourceTree = "<group>"; };
 		4DF2D8962623681400F1252B /* SwatchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwatchView.swift; sourceTree = "<group>"; };
 		4DF4EADF261B168E0041281B /* VirtualObjectEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualObjectEntity.swift; sourceTree = "<group>"; };
+		A9739D6B26483B6100B94870 /* YOLOv3TinyInt8LUT.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = YOLOv3TinyInt8LUT.mlmodel; sourceTree = "<group>"; };
+		A9739D6D264841E300B94870 /* ARView+Vision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARView+Vision.swift"; sourceTree = "<group>"; };
+		A9739D6F264843DF00B94870 /* ARView+placement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARView+placement.swift"; sourceTree = "<group>"; };
+		A9739D712648526200B94870 /* CGImagePropertyOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGImagePropertyOrientation.swift; sourceTree = "<group>"; };
+		A9739D7326485D6C00B94870 /* VisionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionModel.swift; sourceTree = "<group>"; };
 		A9830D89263486F7007EF01B /* fiberglassSideChair.usdz */ = {isa = PBXFileReference; lastKnownFileType = file.usdz; path = fiberglassSideChair.usdz; sourceTree = "<group>"; };
-		A983A8FA2631E812003E0465 /* ARViewContainer+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARViewContainer+.swift"; sourceTree = "<group>"; };
+		A983A8FA2631E812003E0465 /* ARView+Classification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARView+Classification.swift"; sourceTree = "<group>"; };
 		A9B72D61262B947000707D51 /* Composition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Composition.swift; sourceTree = "<group>"; };
 		A9B72D6E262B9B6C00707D51 /* LightComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LightComponent.swift; sourceTree = "<group>"; };
 		A9B72D71262B9B8600707D51 /* CompositionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionView.swift; sourceTree = "<group>"; };
 		A9CE6C262636026B00E73461 /* RealityKit+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RealityKit+.swift"; sourceTree = "<group>"; };
 		A9CE6C2B263603ED00E73461 /* ARKit+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ARKit+.swift"; sourceTree = "<group>"; };
+		A9F68CB82646DD810017C122 /* VisualEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualEffect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +109,11 @@
 		4D872D15261B7EAD0005FB5B /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				A9739D7326485D6C00B94870 /* VisionModel.swift */,
 				4D872D19261BCD4A0005FB5B /* VirtualObject.swift */,
 				4DE9DE5826121E4C0082AD9B /* Experience.rcproject */,
+				4D43C8F026142C3600D2AF71 /* Launch Screen.storyboard */,
+				A9739D6B26483B6100B94870 /* YOLOv3TinyInt8LUT.mlmodel */,
 				4D872D1C261CEE5D0005FB5B /* Assets */,
 			);
 			path = Resource;
@@ -146,12 +161,12 @@
 				4D872D15261B7EAD0005FB5B /* Resource */,
 				4DB05C2926289DEF0062ED94 /* Components */,
 				4DF4EADE261B16740041281B /* Entities */,
+				A9F68CB72646DC970017C122 /* Reusable */,
 				4D49CF372624774D00B2C9A3 /* Interior */,
 				A9CE6C292636029600E73461 /* AR */,
 				4DE9DE5426121E4C0082AD9B /* AppDelegate.swift */,
 				4DE9DE5F26121E510082AD9B /* Info.plist */,
 				4DE9DE5C26121E510082AD9B /* Preview Content */,
-				4D43C8F026142C3600D2AF71 /* Launch Screen.storyboard */,
 			);
 			path = APlace;
 			sourceTree = "<group>";
@@ -170,6 +185,7 @@
 				4DF2D8822620C01200F1252B /* simd_float4x4.swift */,
 				A9CE6C262636026B00E73461 /* RealityKit+.swift */,
 				A9CE6C2B263603ED00E73461 /* ARKit+.swift */,
+				A9739D712648526200B94870 /* CGImagePropertyOrientation.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -205,11 +221,21 @@
 		A9CE6C292636029600E73461 /* AR */ = {
 			isa = PBXGroup;
 			children = (
-				A983A8FA2631E812003E0465 /* ARViewContainer+.swift */,
+				A9739D6D264841E300B94870 /* ARView+Vision.swift */,
+				A983A8FA2631E812003E0465 /* ARView+Classification.swift */,
 				4DF2D8872621377500F1252B /* ARViewContainer.swift */,
 				4DE8EBD626455BF7004703CE /* ARClassification.swift */,
+				A9739D6F264843DF00B94870 /* ARView+placement.swift */,
 			);
 			path = AR;
+			sourceTree = "<group>";
+		};
+		A9F68CB72646DC970017C122 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				A9F68CB82646DD810017C122 /* VisualEffect.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -286,17 +312,23 @@
 			files = (
 				4D872D1A261BCD4A0005FB5B /* VirtualObject.swift in Sources */,
 				A9B72D62262B947000707D51 /* Composition.swift in Sources */,
+				A9F68CB92646DD810017C122 /* VisualEffect.swift in Sources */,
+				A9739D70264843DF00B94870 /* ARView+placement.swift in Sources */,
 				A9B72D6F262B9B6C00707D51 /* LightComponent.swift in Sources */,
 				4D28618C26457B4800C495F0 /* ContextSuggestion.swift in Sources */,
+				A9739D722648526200B94870 /* CGImagePropertyOrientation.swift in Sources */,
 				A9CE6C272636026B00E73461 /* RealityKit+.swift in Sources */,
 				4DF2D8882621377500F1252B /* ARViewContainer.swift in Sources */,
 				4D8A2E24261FB85600CC4436 /* CompositionsView.swift in Sources */,
-				A983A8FB2631E812003E0465 /* ARViewContainer+.swift in Sources */,
+				A983A8FB2631E812003E0465 /* ARView+Classification.swift in Sources */,
 				4D6E11BA2623B53B0023AC87 /* SwatchPicker.swift in Sources */,
 				4DE9DE5726121E4C0082AD9B /* ContentView.swift in Sources */,
 				4DE9DE5526121E4C0082AD9B /* AppDelegate.swift in Sources */,
 				4DA83A9126237AC4004773F1 /* Swatch.swift in Sources */,
+				A9739D7426485D6C00B94870 /* VisionModel.swift in Sources */,
 				4DE8EBD726455BF7004703CE /* ARClassification.swift in Sources */,
+				A9739D6E264841E300B94870 /* ARView+Vision.swift in Sources */,
+				A9739D6C26483B6100B94870 /* YOLOv3TinyInt8LUT.mlmodel in Sources */,
 				4DB05C2E2628BC310062ED94 /* Assets.swift in Sources */,
 				4DE9DE5926121E4C0082AD9B /* Experience.rcproject in Sources */,
 				4DF2D8832620C01200F1252B /* simd_float4x4.swift in Sources */,

@@ -66,7 +66,7 @@ struct ARViewContainer: UIViewRepresentable {
 //        arView.scene.anchors.append(objectAnchor)
         
         
-        // MARK: - Actions
+        // MARK: - Gestures
         
         let tapGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTap))
         arView.addGestureRecognizer(tapGesture)
@@ -121,37 +121,37 @@ struct ARViewContainer: UIViewRepresentable {
                 if let virtualObject = arViewContainer.virtualObject?.entity {
                     place(virtualObject, at: resultAnchor, in: arViewContainer.arView)
                 }
+            }
             // Ray-cast intersected with the real-world surfaces
-            } else {
-                // Ray-cast allowing estimated plane with any alignment takes the mesh into account
-                if let result = arViewContainer.arView.raycast(from: touchPoint, allowing: .estimatedPlane, alignment: .any).first {
-                    // Intersection point of the ray with the real-world surface.
-                    let resultAnchor = AnchorEntity(world: result.worldTransform.position)
+            // Ray-cast allowing estimated plane with any alignment takes the mesh into account
+            if let result = arViewContainer.arView.raycast(from: touchPoint, allowing: .estimatedPlane, alignment: .any).first {
+                // Intersection point of the ray with the real-world surface.
+                let resultAnchor = AnchorEntity(world: result.worldTransform.position)
+                
+                if let virtualObject = arViewContainer.virtualObject?.entity {
+                    place(virtualObject, at: resultAnchor, in: arViewContainer.arView)
+                }
+                
+                if let lastTouchPosition = lastTouchPosition {
+                    // Measure distance from touch to last touch
+                    print(distance(result.worldTransform.position, lastTouchPosition))
+                }
+                
+                lastTouchPosition = result.worldTransform.position
+                
+                mark(at: resultAnchor, in: arViewContainer.arView)
+                
+                nearbyFaceWithClassification(to: result.worldTransform.position) { [weak self] (centerOfFace, classification) in
                     
-                    if let virtualObject = arViewContainer.virtualObject?.entity {
-                        place(virtualObject, at: resultAnchor, in: arViewContainer.arView)
+                    // Center of the face (if any was found)
+                    //    It is possible that this is nil, e.g. if there was no face close enough to the tap location.
+                    if centerOfFace != nil {
+                        print(classification.description)
+                        self?.surfaceClassification(SurfaceClassification(mesh: classification, projection: touchPoint))
                     }
                     
-                    if let lastTouchPosition = lastTouchPosition {
-                        // Measure distance from touch to last touch
-                        print(distance(result.worldTransform.position, lastTouchPosition))
-                    }
-                    
-                    lastTouchPosition = result.worldTransform.position
-                    
-                    mark(at: resultAnchor, in: arViewContainer.arView)
-                    
-                    nearbyFaceWithClassification(to: result.worldTransform.position) { (centerOfFace, classification) in
-                        
-                        // Center of the face (if any was found)
-                        //    It is possible that this is nil, e.g. if there was no face close enough to the tap location.
-                        if let _ = centerOfFace {
-                            print(classification.description)
-                        }
-                        
-                        DispatchQueue.main.async {
-                            // TODO: Visualize the classification result.
-                        }
+                    DispatchQueue.main.async {
+                        // TODO: Visualize the classification result.
                     }
                 }
             }
@@ -171,9 +171,40 @@ struct ARViewContainer: UIViewRepresentable {
             let touchPoint = sender.location(in: arViewContainer.arView)
             guard let entity = arViewContainer.arView.entity(at: touchPoint) else { return }
             entity.removeFromParent()
-            // TODO: remove the point and model
+            // TODO: untouch - remove the point and empty entity
             touchEntity(CGPoint(x: -100, y: -100), ModelEntity())
         }
+        
+        // MARK: - Vision
+        
+        let visionModel = VisionModel()
+        
+        // The pixel buffer being held for analysis; used to serialize Vision requests.
+        var currentBuffer: CVPixelBuffer?
+        
+        // Queue for dispatching vision classification requests
+        let visionQueue = DispatchQueue(label: "me.human.APlace.visionQueue")
+        
+        // Vision Request
+        lazy var classificationRequest: VNCoreMLRequest = {
+            do {
+                // Instantiate the model from its generated Swift class.
+                let model = try VNCoreMLModel(for: visionModel.objectModel.model)
+                let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
+                    self?.processClassifications(for: request, error: error)
+                })
+                
+                // Crop input images to square area at center, matching the way the ML model was trained.
+                    request.imageCropAndScaleOption = .centerCrop
+                
+                // Use CPU for Vision processing to ensure that there are adequate GPU resources for rendering.
+                request.usesCPUOnly = true
+                
+                return request
+            } catch {
+                fatalError("Failed to load Vision ML model: \(error)")
+            }
+        }()
         
         // MARK: - ARSession Delegate
         
@@ -181,22 +212,26 @@ struct ARViewContainer: UIViewRepresentable {
 //            guard let lightEstimate = session.currentFrame?.lightEstimate else { return }
 //            print(lightEstimate.ambientColorTemperature)
 //            print(lightEstimate.ambientIntensity)
-//            let directionalLightEstimate = lightEstimate as? ARDirectionalLightEstimate
-//            print(directionalLightEstimate.primaryLightDirection)
-//            print(directionalLightEstimate.primaryLightIntensity)
+            
+            // Pass camera frames received from ARKit to Vision
+            guard currentBuffer == nil else { return }
+            // Retain the image buffer for Vision processing.
+            self.currentBuffer = frame.capturedImage
+            classifyCurrentImage()
         }
         
         func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
 //            print(arViewContainer.arView.scene.anchors)
             // Session automatically attempts to detect surfaces
-            guard let anchor = anchors.first else { return }
-            guard let projection = arViewContainer.arView.project(anchor.transform.position) else { return }
+            guard
+                let anchor = anchors.first,
+                let projection = arViewContainer.arView.project(anchor.transform.position)
+            else { return }
             nearbyFaceWithClassification(to: anchor.transform.position) { [weak self] (centerOfFace, classification) in
-                if let _ = centerOfFace {
-                    self?.surfaceClassification(SurfaceClassification(mesh: classification, point: projection))
+                if centerOfFace != nil {
+                    self?.surfaceClassification(SurfaceClassification(mesh: classification, projection: projection))
                 }
             }
-//            print(anchors)
         }
         
     }
