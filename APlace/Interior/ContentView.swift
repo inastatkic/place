@@ -14,6 +14,7 @@ struct ContentView : View {
     @State var virtualObject: VirtualObject?
     @State var swatches: [String] = []
     @State var surfaceClassification = SurfaceClassification()
+    @State var ceilingHeight = Float()
 
     var body: some View {
         ZStack {
@@ -26,9 +27,14 @@ struct ContentView : View {
                 swatches = Assets(asset: asset).swatches()
             } surfaceClassification: {
                 surfaceClassification = $0
-            }.edgesIgnoringSafeArea(.all)
+            } ceilingHeight: {
+                ceilingHeight = $0
+            }
+            .edgesIgnoringSafeArea(.all)
+            .statusBar(hidden: true)
             SwatchPicker(swatches: $swatches, touchPoint: $touchEntity.0, model: $touchEntity.1)
             ContextSuggestion(surfaceClassification: $surfaceClassification)
+            SceneSuggestion(ceilingHeight: $ceilingHeight)
             VStack {
                 Spacer()
                 Button {

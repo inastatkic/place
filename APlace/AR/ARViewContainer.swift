@@ -14,11 +14,10 @@ struct ARViewContainer: UIViewRepresentable {
     @Binding var virtualObject: VirtualObject?
     var touchEntity: ((CGPoint, ModelEntity) -> ())
     var surfaceClassification: ((SurfaceClassification) -> ())
+    var ceilingHeight: ((Float) -> ())
+    var anchors: [AnchorClassification] = [AnchorClassification]()
     
     func makeUIView(context: Context) -> ARView {
-        
-        // Prevent the screen from being dimmed to avoid interrupting the AR experience.
-        UIApplication.shared.isIdleTimerDisabled = true
         
         // MARK: - Environment
         
@@ -43,19 +42,24 @@ struct ARViewContainer: UIViewRepresentable {
         configuration.planeDetection = [.horizontal, .vertical]
         configuration.environmentTexturing = .automatic
         configuration.isLightEstimationEnabled = true
+        configuration.frameSemantics = .smoothedSceneDepth
         arView.session.run(configuration)
+        
+        // Prevent the screen from being dimmed to avoid interrupting the AR experience.
+        UIApplication.shared.isIdleTimerDisabled = true
         
         // MARK: - Debug
         
         // Display a debug visualization of the mesh
 //        arView.debugOptions.insert(.showSceneUnderstanding)
-        arView.debugOptions.insert(.showAnchorOrigins)
-        
+//        arView.debugOptions.insert(.showAnchorOrigins)
         
         // MARK: - Render
         
         // For performance, disable render options that are not required for this app.
-        arView.renderOptions = [.disableMotionBlur, .disableFaceOcclusions]
+        arView.renderOptions.insert(.disableFaceOcclusions)
+        // Add Depth of Field
+        arView.renderOptions.remove(.disableDepthOfField)
         
         // MARK: - Experience
         
@@ -64,7 +68,6 @@ struct ARViewContainer: UIViewRepresentable {
 
         // Add the object anchor to the scene
 //        arView.scene.anchors.append(objectAnchor)
-        
         
         // MARK: - Gestures
         
@@ -89,7 +92,12 @@ struct ARViewContainer: UIViewRepresentable {
     // MARK: - Coordinator
     
     func makeCoordinator() -> Coordinator {
-        Coordinator(self, touchEntity: touchEntity, surfaceClassification: surfaceClassification)
+        Coordinator(
+            self,
+            touchEntity: touchEntity,
+            surfaceClassification: surfaceClassification,
+            ceilingHeight: ceilingHeight
+        )
     }
     
     class Coordinator: NSObject, ARSessionDelegate {
@@ -97,13 +105,16 @@ struct ARViewContainer: UIViewRepresentable {
         var touchEntity: ((CGPoint, ModelEntity) -> ())
         var surfaceClassification: ((SurfaceClassification) -> ())
         private var lastTouchPosition: SIMD3<Float>?
+        var ceilingHeight: ((Float) -> ())
         
         init(_ arViewContainer: ARViewContainer,
              touchEntity: @escaping ((CGPoint, ModelEntity) -> ()),
-             surfaceClassification: @escaping ((SurfaceClassification) -> ())) {
+             surfaceClassification: @escaping ((SurfaceClassification) -> ()),
+             ceilingHeight: @escaping ((Float) -> ())) {
             self.arViewContainer = arViewContainer
             self.touchEntity = touchEntity
             self.surfaceClassification = surfaceClassification
+            self.ceilingHeight = ceilingHeight
         }
         
         // MARK: - Actions
@@ -118,38 +129,40 @@ struct ARViewContainer: UIViewRepresentable {
                 // Intersection point of the ray with the virtual surface.
                 let resultAnchor = AnchorEntity(world: result.position)
                 // Place on top of the other virtual object
+                // TODO: limit which objects you can place on top of other
                 if let virtualObject = arViewContainer.virtualObject?.entity {
                     place(virtualObject, at: resultAnchor, in: arViewContainer.arView)
                 }
-            }
             // Ray-cast intersected with the real-world surfaces
             // Ray-cast allowing estimated plane with any alignment takes the mesh into account
-            if let result = arViewContainer.arView.raycast(from: touchPoint, allowing: .estimatedPlane, alignment: .any).first {
+            } else if let result = arViewContainer.arView.raycast(from: touchPoint, allowing: .estimatedPlane, alignment: .any).first {
                 // Intersection point of the ray with the real-world surface.
                 let resultAnchor = AnchorEntity(world: result.worldTransform.position)
                 
                 if let virtualObject = arViewContainer.virtualObject?.entity {
                     place(virtualObject, at: resultAnchor, in: arViewContainer.arView)
                 }
+            }
+            
+            if let result = arViewContainer.arView.raycast(from: touchPoint, allowing: .estimatedPlane, alignment: .any).first {
+                // Intersection point of the ray with the real-world surface.
+                let resultAnchor = AnchorEntity(world: result.worldTransform.position)
                 
                 if let lastTouchPosition = lastTouchPosition {
                     // Measure distance from touch to last touch
-                    print(distance(result.worldTransform.position, lastTouchPosition))
+//                    print(distance(result.worldTransform.position, lastTouchPosition))
                 }
                 
                 lastTouchPosition = result.worldTransform.position
-                
-                mark(at: resultAnchor, in: arViewContainer.arView)
+//                mark(at: resultAnchor, in: arViewContainer.arView)
                 
                 nearbyFaceWithClassification(to: result.worldTransform.position) { [weak self] (centerOfFace, classification) in
-                    
                     // Center of the face (if any was found)
-                    //    It is possible that this is nil, e.g. if there was no face close enough to the tap location.
+                    // It is possible that this is nil, e.g. if there was no face close enough to the tap location.
                     if centerOfFace != nil {
-                        print(classification.description)
+//                        print(classification.description)
                         self?.surfaceClassification(SurfaceClassification(mesh: classification, projection: touchPoint))
                     }
-                    
                     DispatchQueue.main.async {
                         // TODO: Visualize the classification result.
                     }
@@ -193,13 +206,10 @@ struct ARViewContainer: UIViewRepresentable {
                 let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
                     self?.processClassifications(for: request, error: error)
                 })
-                
                 // Crop input images to square area at center, matching the way the ML model was trained.
                     request.imageCropAndScaleOption = .centerCrop
-                
                 // Use CPU for Vision processing to ensure that there are adequate GPU resources for rendering.
                 request.usesCPUOnly = true
-                
                 return request
             } catch {
                 fatalError("Failed to load Vision ML model: \(error)")
@@ -217,19 +227,34 @@ struct ARViewContainer: UIViewRepresentable {
             guard currentBuffer == nil else { return }
             // Retain the image buffer for Vision processing.
             self.currentBuffer = frame.capturedImage
-            classifyCurrentImage()
+//            classifyCurrentImage()
         }
         
         func session(_ session: ARSession, didAdd anchors: [ARAnchor]) {
 //            print(arViewContainer.arView.scene.anchors)
             // Session automatically attempts to detect surfaces
             guard
-                let anchor = anchors.first,
-                let projection = arViewContainer.arView.project(anchor.transform.position)
+                let firstAnchor = anchors.first,
+                let projection = arViewContainer.arView.project(firstAnchor.transform.position)
             else { return }
-            nearbyFaceWithClassification(to: anchor.transform.position) { [weak self] (centerOfFace, classification) in
+            nearbyFaceWithClassification(to: firstAnchor.transform.position) { [weak self] (centerOfFace, classification) in
                 if centerOfFace != nil {
                     self?.surfaceClassification(SurfaceClassification(mesh: classification, projection: projection))
+                }
+            }
+            
+            for anchor in anchors {
+                nearbyFaceWithClassification(to: anchor.transform.position) { [weak self] (centerOfFace, classification) in
+                    if centerOfFace != nil {
+                        self?.arViewContainer.anchors.append(AnchorClassification(mesh: classification, position: anchor.transform.position))
+                        if
+                            let ceiling = self?.arViewContainer.anchors.first(where: { $0.mesh == .ceiling })?.position.y,
+                            let floor = self?.arViewContainer.anchors.first(where: { $0.mesh == .floor })?.position.y
+                        {
+                            // Distance from detected ceiling to floor
+                            self?.ceilingHeight(distance(SIMD3<Float>(0,ceiling,0), SIMD3<Float>(0,floor,0)))
+                        }
+                    }
                 }
             }
         }

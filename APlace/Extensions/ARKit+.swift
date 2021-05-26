@@ -1,6 +1,7 @@
 // Created by Ina Statkic in 2021.
 
 import ARKit.ARMeshGeometry
+import SwiftUI
 
 extension ARMeshClassification {
     var description: String {
@@ -19,16 +20,33 @@ extension ARMeshClassification {
     
     var suggestion: String {
         switch self {
-        case .ceiling: return "Space measurement relations"
-        case .door: return "Space measurement relations"
-        case .floor: return "Space measurement relations"
-        case .seat: return "Seat"
-        case .table: return "Table"
-        case .wall: return "Space measurement relations"
+        case .ceiling: return "Ceiling"
+        case .door: return "Entrance"
+        case .floor: return "Floor"
+        case .seat: return "Place to sit"
+        case .table: return "Place on a table"
+        case .wall: return "Wall"
         case .window: return "Daylight"
         case .none: return "None"
         @unknown default: return "Unknown"
         }
+    }
+    
+    /// The associated image
+    var image: Image {
+        let name: String
+        switch self {
+        case .ceiling: name = "cube"
+        case .door: name = "rectangle.fill"
+        case .floor: name = "cube"
+        case .seat: name = "circle.fill"
+        case .table: name = "cube.fill"
+        case .wall: name = "cube"
+        case .window: name = "cloud.sun.fill"
+        case .none: name = "triangle.fill"
+        @unknown default: name = "triangle.fill"
+        }
+        return Image(systemName: name)
     }
 }
 

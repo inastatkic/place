@@ -11,12 +11,12 @@ struct ContextSuggestion: View {
     @Binding var surfaceClassification: SurfaceClassification
     
     var body: some View {
-        Text(surfaceClassification.mesh.suggestion)
+        Text(surfaceClassification.mesh.image)
             .textCase(.uppercase)
             .foregroundColor(.white)
             .padding()
             .background(VisualEffect(style: .systemUltraThinMaterialDark))
-            .cornerRadius(10)
+            .cornerRadius(15)
             .position(surfaceClassification.projection)
             .contextMenu {
                 switch surfaceClassification.mesh {
@@ -33,7 +33,11 @@ struct ContextSuggestion: View {
                 case .wall: Group {}
                 case .floor: Group {}
                 case .ceiling: Group {}
-                case .table: Group {}
+                case .table: Group {
+                    Button { placeLamp() } label: {
+                        Text("Lamp")
+                    }
+                }
                 case .seat: Group {}
                 case .door: Group {}
                 @unknown default: Group {}
@@ -45,4 +49,5 @@ struct ContextSuggestion: View {
     
     func naturalLight() { }
     func visualLinks() { }
+    func placeLamp() { }
 }

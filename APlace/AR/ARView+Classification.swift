@@ -3,9 +3,9 @@
 import ARKit
 
 extension ARViewContainer.Coordinator {
-    func nearbyFaceWithClassification(to location: SIMD3<Float>, completionBlock: @escaping (SIMD3<Float>?, ARMeshClassification) -> Void) {
+    func nearbyFaceWithClassification(to location: SIMD3<Float>, completion: @escaping (SIMD3<Float>?, ARMeshClassification) -> Void) {
         guard let frame = arViewContainer.arView.session.currentFrame else {
-            completionBlock(nil, .none)
+            completion(nil, .none)
             return
         }
         var meshAnchors = frame.anchors.compactMap({ $0 as? ARMeshAnchor })
@@ -33,14 +33,14 @@ extension ARViewContainer.Coordinator {
                     if distanceToFace <= 0.1 {
                         // Get the semantic classification of the face and finish the search.
                         let classification: ARMeshClassification = anchor.geometry.classificationOf(faceWithIndex: index)
-                        completionBlock(centerWorldPosition, classification)
+                        completion(centerWorldPosition, classification)
                         return
                     }
                 }
             }
             
             // Let the completion block know that no result was found.
-            completionBlock(nil, .none)
+            completion(nil, .none)
         }
     }
 

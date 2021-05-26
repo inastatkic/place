@@ -13,3 +13,8 @@ struct SurfaceClassification {
     // point from the 3D world to the pixel of the viewport
     var projection = CGPoint()
 }
+
+struct AnchorClassification {
+    var mesh: ARMeshClassification = .none
+    var position: SIMD3<Float>
+}
