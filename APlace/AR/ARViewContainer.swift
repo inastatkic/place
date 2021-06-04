@@ -15,7 +15,7 @@ struct ARViewContainer: UIViewRepresentable {
     var touchEntity: ((CGPoint, ModelEntity) -> ())
     var surfaceClassification: ((SurfaceClassification) -> ())
     var ceilingHeight: ((Float) -> ())
-    var anchors: [AnchorClassification] = [AnchorClassification]()
+    private let locationManager = CLLocationManager()
     
     func makeUIView(context: Context) -> ARView {
         
@@ -57,7 +57,7 @@ struct ARViewContainer: UIViewRepresentable {
         // MARK: - Render
         
         // For performance, disable render options that are not required for this app.
-        arView.renderOptions.insert(.disableFaceOcclusions)
+        arView.renderOptions.insert(.disableMotionBlur)
         // Add Depth of Field
         arView.renderOptions.remove(.disableDepthOfField)
         
@@ -75,7 +75,7 @@ struct ARViewContainer: UIViewRepresentable {
         arView.addGestureRecognizer(tapGesture)
         
         let touchGesture = UITapGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleTouch))
-        touchGesture.numberOfTouchesRequired = 3
+        touchGesture.numberOfTouchesRequired = 2
         arView.addGestureRecognizer(touchGesture)
         
         let longPressGesture = UILongPressGestureRecognizer(target: context.coordinator, action: #selector(Coordinator.handleLongPress))
@@ -83,6 +83,9 @@ struct ARViewContainer: UIViewRepresentable {
         arView.addGestureRecognizer(longPressGesture)
         
         arView.session.delegate = context.coordinator
+        
+        locationManager.startUpdatingHeading()
+        locationManager.delegate = context.coordinator
         
         // MARK: - ARView
         
@@ -100,12 +103,14 @@ struct ARViewContainer: UIViewRepresentable {
         )
     }
     
-    class Coordinator: NSObject, ARSessionDelegate {
+    class Coordinator: NSObject, ARSessionDelegate, CLLocationManagerDelegate {
         var arViewContainer: ARViewContainer
         var touchEntity: ((CGPoint, ModelEntity) -> ())
         var surfaceClassification: ((SurfaceClassification) -> ())
         private var lastTouchPosition: SIMD3<Float>?
         var ceilingHeight: ((Float) -> ())
+        var sceneAnchors: [AnchorClassification] = [AnchorClassification]()
+        var planeAnchors: [AnchorClassification] = [AnchorClassification]()
         
         init(_ arViewContainer: ARViewContainer,
              touchEntity: @escaping ((CGPoint, ModelEntity) -> ()),
@@ -150,7 +155,7 @@ struct ARViewContainer: UIViewRepresentable {
                 
                 if let lastTouchPosition = lastTouchPosition {
                     // Measure distance from touch to last touch
-//                    print(distance(result.worldTransform.position, lastTouchPosition))
+                    print(distance(result.worldTransform.position, lastTouchPosition))
                 }
                 
                 lastTouchPosition = result.worldTransform.position
@@ -243,20 +248,34 @@ struct ARViewContainer: UIViewRepresentable {
                 }
             }
             
+//            let spot = ModelEntity(mesh: .generateSphere(radius: 0.01), materials: [SimpleMaterial()])
             for anchor in anchors {
                 nearbyFaceWithClassification(to: anchor.transform.position) { [weak self] (centerOfFace, classification) in
                     if centerOfFace != nil {
-                        self?.arViewContainer.anchors.append(AnchorClassification(mesh: classification, position: anchor.transform.position))
+                        self?.sceneAnchors.append(AnchorClassification(mesh: classification, position: anchor.transform.position))
                         if
-                            let ceiling = self?.arViewContainer.anchors.first(where: { $0.mesh == .ceiling })?.position.y,
-                            let floor = self?.arViewContainer.anchors.first(where: { $0.mesh == .floor })?.position.y
+                            let ceiling = self?.sceneAnchors.first(where: { $0.mesh == .ceiling })?.position.y,
+                            let floor = self?.sceneAnchors.first(where: { $0.mesh == .floor })?.position.y
                         {
                             // Distance from detected ceiling to floor
                             self?.ceilingHeight(distance(SIMD3<Float>(0,ceiling,0), SIMD3<Float>(0,floor,0)))
                         }
+                        if anchor.isKind(of: ARPlaneAnchor.self) && classification == .wall {
+                            self?.planeAnchors.append(AnchorClassification(mesh: classification, position: anchor.transform.position))
+//                            print(anchor)
+//                            let anchorEntity = AnchorEntity(world: anchor.transform.position)
+//                            anchorEntity.addChild(spot)
+//                            self?.arViewContainer.arView.scene.addAnchor(anchorEntity)
+                        }
                     }
                 }
             }
+        }
+        
+        // MARK: - Location Delegate
+        
+        func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+//            print(newHeading.trueHeading)
         }
         
     }

@@ -33,8 +33,8 @@ struct ContentView : View {
             .edgesIgnoringSafeArea(.all)
             .statusBar(hidden: true)
             SwatchPicker(swatches: $swatches, touchPoint: $touchEntity.0, model: $touchEntity.1)
-            ContextSuggestion(surfaceClassification: $surfaceClassification)
             SceneSuggestion(ceilingHeight: $ceilingHeight)
+            ContextSuggestion(surfaceClassification: $surfaceClassification)
             VStack {
                 Spacer()
                 Button {

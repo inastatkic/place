@@ -17,7 +17,6 @@ struct ContextSuggestion: View {
             .padding()
             .background(VisualEffect(style: .systemUltraThinMaterialDark))
             .cornerRadius(15)
-            .position(surfaceClassification.projection)
             .contextMenu {
                 switch surfaceClassification.mesh {
                 case .window:
@@ -26,7 +25,7 @@ struct ContextSuggestion: View {
                             Text("Natural light")
                         }
                         Button { visualLinks() } label: {
-                            Text("Visualy link with the outside")
+                            Text("Visual link with the outside")
                         }
                     }
                 case .none: Group {}
@@ -43,6 +42,8 @@ struct ContextSuggestion: View {
                 @unknown default: Group {}
                 }
             }
+            .position(surfaceClassification.projection)
+            .menuStyle(BorderlessButtonMenuStyle())
     }
     
     // MARK: - Actions
